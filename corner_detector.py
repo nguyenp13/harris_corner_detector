@@ -126,8 +126,8 @@ def main():
     
     thresholded_smaller_eigenvalues = numpy.array(smaller_eigenvalues) # threshold the eigen values to make sure they're all above the specified threshold.
     thresholded_smaller_eigenvalues[thresholded_smaller_eigenvalues<threshold] = 0 # zero out elements below the threshold
-    print thresholded_smaller_eigenvalues[thresholded_smaller_eigenvalues!=0]
-    print len(thresholded_smaller_eigenvalues[thresholded_smaller_eigenvalues!=0])
+#    print thresholded_smaller_eigenvalues[thresholded_smaller_eigenvalues!=0]
+#    print len(thresholded_smaller_eigenvalues[thresholded_smaller_eigenvalues!=0])
     save_image(thresholded_smaller_eigenvalues,os.path.join(out_dir,'thresholded_smaller_eigenvalues.png'))
     
     y_values, x_values = map(list, numpy.nonzero(thresholded_smaller_eigenvalues))
