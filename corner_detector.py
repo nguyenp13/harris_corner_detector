@@ -24,24 +24,24 @@ def get_smaller_eigenvalue(F_x_squared_val, F_y_squared_val, F_xy_val):
     return min(eigen_values)
 
 def usage():
-    # Sample Usage: python corner_detector.py checker.jpg 9 5 15000
+    # Sample Usage: python corner_detector.py david.png -denoising_sigma 2 -neighborhood_width 5 -threshold 15000
     print >> sys.stderr, ''
     print >> sys.stderr, 'Usage: python '+__file__+' input_image out_dir <options>'
     print >> sys.stderr, ''
-    print >> sys.stderr, 'Sample Usage: python '+__file__+' input.png -denoising_sigma 9 -neighborhood_width 5 -threshold 15000'
+    print >> sys.stderr, 'Sample Usage: python '+__file__+' input.png -denoising_sigma 2 -neighborhood_width 5 -threshold 15000'
     print >> sys.stderr, ''
     print >> sys.stderr, 'Automatic detection of features, e.g. corners, are useful in many common computer vision problems , e.g. feature correspondence finding in stereo and motion estimation. The Harris\'s corner detector is a classic algorithm used to find corners in an image using covariance matrices and eigenvalues on the gradients of an image.'
     print >> sys.stderr, ''
     print >> sys.stderr, 'Options:'
     print >> sys.stderr, ''
     print >> sys.stderr, '    -denoising_sigma <float>'
-    print >> sys.stderr, '        We first smooth the image using a Gaussian filter in order to denoise it. This parameter determines how much smoothing takes place. '
+    print >> sys.stderr, '        We first smooth the image using a Gaussian filter in order to denoise it. This parameter determines how much smoothing takes place. The default value is 2.0.'
     print >> sys.stderr, ''
     print >> sys.stderr, '    -neighborhood_width <int>'
-    print >> sys.stderr, '        The window size that determines the scale of corners we are looking for. This value must be odd. NOTE: This is a single scale corner detector. The code presented here can be easily modified to be a multicale corner detector. Feel free to use this code as you like provided that you give credit. '
+    print >> sys.stderr, '        The window size that determines the scale of corners we are looking for. This value must be odd. The default value is 5. NOTE: This is a single scale corner detector. The code presented here can be easily modified to be a multicale corner detector. Feel free to use this code as you like provided that you give credit. '
     print >> sys.stderr, ''
     print >> sys.stderr, '    -threshold <float>'
-    print >> sys.stderr, '        The threshold cut off we use in determining how much variance defines a corner.'
+    print >> sys.stderr, '        The threshold cut off we use in determining how much variance defines a corner. The default value is 15000. '
     print >> sys.stderr, ''
     sys.exit(1)
 
